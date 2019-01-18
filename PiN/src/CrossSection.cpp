@@ -22,6 +22,7 @@ void CrossSection::CS() {
         f[k] = 0;
         g[k] = 0;
     }
+
     diffCS = new TGraph();
     intCS = new TGraph();
 
@@ -29,14 +30,14 @@ void CrossSection::CS() {
         energy[j] = j * 10;
         sigma[j] = 0;
 
-        for (int i = 0; i < numOfTeta - 1; ++i) { //angular loop
-            dSigmaPervious = 0;
-            dSigmaNext = 0;
+        for (int i = 1; i < numOfTeta - 1; ++i) { //angular loop
+//            dSigmaPervious = 0;
+//            dSigmaNext = 0;
             teta[i] = 0.0;
             teta[i] = i * TMath::Pi() / (numOfTeta - 1);
             f = ampl->F_amplitude(j, teta[i], channel);
             g = ampl->G_amplitude(j, teta[i], channel);
-            Double_t zzTop = (f[0] * f[0] + f[1] * f[1] + g[0] * g[0] + g[1] * g[1]) / mom->K_square(j, channel) * 1000000;
+            Double_t zzTop = (f[0] * f[0] + f[1] * f[1] + g[0] * g[0] + g[1] * g[1]) / mom->K_square(j, channel) / 2.57 * 1000000;
             if (j == selectedEnergy) {
                 dSigma[i] = zzTop;
                 if (dSigma[i] > maxDSigma) maxDSigma = dSigma[i];
@@ -45,10 +46,10 @@ void CrossSection::CS() {
             dSigmaNext = TMath::Sin(teta[i]) * zzTop;
 //            cout << dSigmaNext << " = dsigmaNext" << endl;
 
-            if (i > 0) {
-                sigma[j] += (dSigmaNext + dSigmaPervious) / 2 * TMath::Pi() / (numOfTeta - 1);
+
+            sigma[j] += (dSigmaNext + dSigmaPervious) / 2 * TMath::Pi() / (numOfTeta - 1);
 //                cout << "sigma "  << sigma[j] << endl;
-            }
+
             dSigmaPervious = dSigmaNext;
         }
         sigma[j] *= 2 * TMath::Pi();
