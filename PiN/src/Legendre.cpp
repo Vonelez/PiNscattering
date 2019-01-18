@@ -13,8 +13,6 @@ Legendre::~Legendre() {
 
 }
 
-using namespace TMath;
-
 Double_t Legendre::LegendrePol(Int_t n, Double_t teta) {
     Double_t x = Cos(teta);
     if(n == 0) return 1;
@@ -24,5 +22,6 @@ Double_t Legendre::LegendrePol(Int_t n, Double_t teta) {
 
 Double_t Legendre::LegendrePolDeriv(Int_t n, Double_t teta) {
     Double_t x = Cos(teta);
+    if(n == 0) return 0;
     return (n / (1 - x * x)) * (LegendrePol(n - 1, teta) - x * LegendrePol(n, teta));
 }

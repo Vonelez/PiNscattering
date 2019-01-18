@@ -7,6 +7,9 @@
 
 #include "TMath.h"
 #include <iostream>
+
+using namespace TMath;
+
 class Legendre {
  public:
   Legendre();

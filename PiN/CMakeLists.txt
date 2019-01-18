@@ -3,7 +3,7 @@ project(PiN)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PiN main.cpp src/Dat.cpp include/Dat.h src/Legendre.cpp include/Legendre.h)
+add_executable(PiN main.cpp src/Dat.cpp include/Dat.h src/Legendre.cpp include/Legendre.h src/Momentum.cpp include/Momentum.h src/Amplitudes.cpp include/Amplitudes.h src/Argand.cpp include/Argand.h src/CrossSection.cpp include/CrossSection.h)
 
 list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
 

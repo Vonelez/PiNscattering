@@ -30,7 +30,7 @@ EXEC = PiN
 SOURCE_DIR = src
 
 #list here all the source files
-SRC = main.cpp  $(SOURCE_DIR)/Dat.cpp  $(SOURCE_DIR)/Legendre.cpp
+SRC = main.cpp  $(SOURCE_DIR)/Dat.cpp  $(SOURCE_DIR)/Legendre.cpp  $(SOURCE_DIR)/Momentum.cpp  $(SOURCE_DIR)/Amplitudes.cpp   $(SOURCE_DIR)/Argand.cpp  $(SOURCE_DIR)/CrossSection.cpp
 
 #A directory for build artefacts
 BUILD_DIR = Build

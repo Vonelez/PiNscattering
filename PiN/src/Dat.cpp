@@ -6,10 +6,11 @@
 #include "../include/Dat.h"
 
 Dat::Dat() {
+    cout << "Lets reed the fucking FILE!" << endl;
     string line;
-    char fileName[] = "../PARTWPIN.DAT";
+    char fileName[] = "PARTWPIN.DAT";
     ifstream in(fileName);
-    Int_t i = 0;
+    Int_t i = 1;
     Int_t l_dat = 0;
     size = 0;
     if (in.is_open()) {
